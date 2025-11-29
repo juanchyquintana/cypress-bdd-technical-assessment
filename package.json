@@ -1,0 +1,27 @@
+{
+  "name": "cypressautomation",
+  "version": "1.0.0",
+  "description": "Prueba Tecnica QA: Automatizacion E2E con Cypress + Cucumber + Typescript validando flujos basicos y componentes UI en example.cypress.io",
+  "keywords": [
+    "Cypress",
+    "Cucumber",
+    "TypeScript"
+  ],
+  "license": "ISC",
+  "author": "Juan Diego Quintana",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^23.2.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.7",
+    "@types/node": "^24.10.1",
+    "cypress": "^15.7.0",
+    "cypress-xpath": "^2.0.1",
+    "typescript": "^5.9.3"
+  }
+}
