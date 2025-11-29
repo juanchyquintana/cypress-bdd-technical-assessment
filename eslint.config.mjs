@@ -20,6 +20,7 @@ import { defineConfig} from 'eslint/config';
 import tseslint from 'typescript-eslint';
 import pluginCypress from 'eslint-plugin-cypress';
 import js from '@eslint/js';
+import eslintConfigPrettier from 'eslint-config-prettier';
 
 export default defineConfig([
     {
@@ -33,11 +34,16 @@ export default defineConfig([
         },
         plugins: {
             cypress: pluginCypress,
+            prettier: prettier
         },
         extends: [
             js.configs.recommended,
             ...tseslint.configs.recommended,
-            pluginCypress.configs.recommended
-        ]
+            pluginCypress.configs.recommended,
+            eslintConfigPrettier
+        ],
+        rules: {
+            'prettier/prettier': 'warn'
+        }
     }
 ])
