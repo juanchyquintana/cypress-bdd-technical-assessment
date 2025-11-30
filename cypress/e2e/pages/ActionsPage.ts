@@ -8,6 +8,7 @@ class ActionsPage {
     cy.visit('/commands/actions');
   }
 
+  // Email
   getInputEmail() {
     return cy.get(inputEmail);
   }
@@ -20,12 +21,21 @@ class ActionsPage {
     this.getInputEmail().type(email);
   }
 
+  clearEmail() {
+    this.getInputEmail().clear();
+  }
+
   isEqualEmail(email: string) {
     this.getInputEmail().should('have.value', email);
   }
 
+  // Coupon
   getCouponInput() {
     return cy.get(inputCoupon).should('be.visible').should('be.enabled').should('have.value', '');
+  }
+
+  typeCoupon(coupon: string) {
+    this.getCouponInput().type(coupon);
   }
 
   getButtonCouponCode() {
@@ -44,8 +54,13 @@ class ActionsPage {
       .scrollIntoView();
   }
 
-  validateMessage(message: string) {
+  // Message
+  haveMessage(message: string) {
     cy.get(successfullyMessage).should('contain.text', message);
+  }
+
+  notHaveMessage() {
+    cy.get(successfullyMessage).should('not.contain.text', 'Your form has been submitted!');
   }
 }
 

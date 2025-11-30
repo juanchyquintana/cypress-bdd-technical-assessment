@@ -11,22 +11,30 @@ When('The user types an email {string}', (email: string) => {
   ActionsPage.typeEmail(email);
 });
 
-When('The user navigates to {string}', (topic: string) => {
+When('The user scroll to {string}', (topic: string) => {
   ActionsPage.scrollToExample(topic);
 });
 
 When('The user types a coupon code {string}', (codeText: string) => {
-  ActionsPage.getCouponInput().type(codeText);
+  ActionsPage.typeCoupon(codeText);
 });
 
 When('The user press submit Button', () => {
   ActionsPage.getButtonCouponCode().click();
 });
 
+When('The user clears the email input', () => {
+    ActionsPage.clearEmail();
+})
+
 Then('The input should show {string}', (expectedEmail: string) => {
   ActionsPage.isEqualEmail(expectedEmail);
 });
 
 Then('The system shows a successful message {string}', (expectedMessage: string) => {
-  ActionsPage.validateMessage(expectedMessage);
+  ActionsPage.haveMessage(expectedMessage);
 });
+
+Then('The system should not show a successful message', () => {
+    ActionsPage.notHaveMessage();
+})
