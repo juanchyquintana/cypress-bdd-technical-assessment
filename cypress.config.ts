@@ -21,6 +21,12 @@ export default defineConfig({
 
       return config;
     },
-    baseUrl: 'https://example.cypress.io'
+    baseUrl: 'https://example.cypress.io',
+    reporter: 'mochawesome',
+    reporterOptions: {
+      reportDir: 'mochawesome-report',
+      reportFilename: "[name]-report",
+      overwrite: true,
+    }
   }
 });
