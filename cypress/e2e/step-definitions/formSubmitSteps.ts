@@ -18,9 +18,21 @@ When('The user check the option Mantener sesión activa', () => {
 });
 
 When('The user press the button for Iniciar Sesion', () => {
-    FormSubmit.pressLoginButton();
-})
+  FormSubmit.pressLoginButton();
+});
 
-Then('The system show a message {string}', (messageSystem: string) => {
-    FormSubmit.haveMessage(messageSystem);
-})
+Then('The form show a email error {string}', (messageSystem: string) => {
+  FormSubmit.assertEmailErrorMessage(messageSystem);
+});
+
+Then('The form show a password error {string}', (messageSystem: string) => {
+  FormSubmit.assertPasswordErrorMessage(messageSystem);
+});
+
+Then('The system show a success message {string}', (messageSystem: string) => {
+  FormSubmit.assertSuccessMessage(messageSystem);
+});
+
+Then('The system show an account error {string}', (messageSystem: string) => {
+  FormSubmit.assertAccountErrorMessage(messageSystem);
+});

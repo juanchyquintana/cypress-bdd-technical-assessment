@@ -3,6 +3,9 @@ const passwordInput = '#password';
 const isActiveSessionCheckBox = '#acceptTerms';
 const loginButton = '#loginBtn';
 const messageSuccessfuly = '#success-message';
+const inputEmailErrorMessage = '#email-error';
+const inputPasswordErrorMessage = '#password-error';
+const errorAccounts = "div[role='alert']";
 
 class FormSubmit {
   visit() {
@@ -66,8 +69,38 @@ class FormSubmit {
     return cy.get(messageSuccessfuly);
   }
 
-  haveMessage(message: string) {
-    this.getMessageSuccessfuly().should('be.visible').should('contain.text', message)
+  assertSuccessMessage(message: string) {
+    this.getMessageSuccessfuly().should('be.visible').should('contain.text', message);
+  }
+
+  getInputEmailErrorMessage() {
+    return cy.get(inputEmailErrorMessage);
+  }
+
+  getInputPasswordErrorMessage() {
+    return cy.get(inputPasswordErrorMessage);
+  }
+
+  assertEmailErrorMessage(message: string) {
+    this.getInputEmailErrorMessage()
+      .should('be.visible')
+      .should('contain.text', message)
+      .should('have.attr', 'role', 'alert');
+  }
+
+  assertPasswordErrorMessage(message: string) {
+    this.getInputPasswordErrorMessage()
+      .should('be.visible')
+      .should('contain.text', message)
+      .should('have.attr', 'role', 'alert');
+  }
+
+  getErrorAccountsMessage() {
+    return cy.get(errorAccounts);
+  }
+
+  assertAccountErrorMessage(message: string) {
+    this.getErrorAccountsMessage().should('be.visible').should('contain.text', message);
   }
 }
 
