@@ -25,8 +25,8 @@ export default defineConfig({
     reporter: 'mochawesome',
     reporterOptions: {
       reportDir: 'mochawesome-report',
-      reportFilename: "[name]-report",
-      overwrite: true,
+      reportFilename: '[name]-report',
+      overwrite: true
     }
   }
 });

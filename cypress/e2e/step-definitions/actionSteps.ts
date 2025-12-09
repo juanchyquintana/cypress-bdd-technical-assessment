@@ -24,8 +24,8 @@ When('The user press submit Button', () => {
 });
 
 When('The user clears the email input', () => {
-    ActionsPage.clearEmail();
-})
+  ActionsPage.clearEmail();
+});
 
 Then('The input should show {string}', (expectedEmail: string) => {
   ActionsPage.isEqualEmail(expectedEmail);
@@ -36,5 +36,5 @@ Then('The system shows a successful message {string}', (expectedMessage: string)
 });
 
 Then('The system should not show a successful message', () => {
-    ActionsPage.notHaveMessage();
-})
+  ActionsPage.notHaveMessage();
+});
