@@ -41,12 +41,15 @@ class QueryingPage {
   }
 
   navigateToMenuItem(topic: string) {
-    cy.contains('ul.home-list a', topic)
-      .scrollIntoView()
+    const selector = 'ul.home-list a';
+    cy.contains(selector, topic).scrollIntoView();
+
+    cy.contains(selector, topic)
       .should('be.visible')
       .should('have.prop', 'tagName', 'A')
-      .should('have.text', topic)
-      .click();
+      .should('have.text', topic);
+
+    cy.contains(selector, topic).click();
   }
 
   verifyCommandUrl(topic: string) {
