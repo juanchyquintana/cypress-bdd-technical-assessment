@@ -15,12 +15,15 @@ class HomePage {
 
   // Navigate from home to specific command section by link text
   navigateToCommand(topic: string) {
-    cy.contains('ul.home-list a', topic)
-    .scrollIntoView()
-    .should('be.visible')
-    .should("have.prop", "tagName", "A")
-    .should('have.text', topic)
-    .click();
+    const selector = 'ul.home-list a';
+    cy.contains(selector, topic).scrollIntoView();
+
+    cy.contains(selector, topic)
+      .should('be.visible')
+      .should('have.prop', 'tagName', 'A')
+      .should('have.text', topic);
+
+    cy.contains(selector, topic).click();
   }
 
   // Go back to the previous page (used to return to home)
